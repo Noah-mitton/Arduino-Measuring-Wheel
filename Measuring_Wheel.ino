@@ -62,7 +62,7 @@ void loop() {
      Serial.println(counter);
    } 
    previousStateCLK = currentStateCLK;
-   displayNumber01(counter/8.09);
+   displayNumber01(counter/8.09);   // Divide counter by (12*(circumference of the wheel(inches)/number of measurements per rotation of rotary encoder))
 }
 
 void displayNumber01(int toDisplay) {
