@@ -1,3 +1,4 @@
+// Define all the digital pin connections for the 7 segment displays.
 int segA = 2;
 int segB = 3;
 int segC = 4;
@@ -10,11 +11,10 @@ int digit2 = 10;
 int digit3 = 11;
 int digit4 = 12;
 
+// Define the analog pin connections for the rotary encoder.
 #define inputCLK A1
 #define inputDT A2
  
-
-
 int counter = 0; 
 int currentStateCLK;
 int previousStateCLK; 
@@ -47,18 +47,14 @@ void setup() {
 void loop() {
   
   currentStateCLK = digitalRead(inputCLK);
-    
    
-   if (currentStateCLK != previousStateCLK){ 
-       
+   if (currentStateCLK != previousStateCLK){        
      if (digitalRead(inputDT) != currentStateCLK) { 
        counter --;
-       value ="CCW";
-       
+       value ="CCW";    
      } else {
        counter ++;
        value ="CW";
-       
      }
      Serial.print("Direction: ");
      Serial.print(value);
@@ -66,7 +62,6 @@ void loop() {
      Serial.println(counter);
    } 
    previousStateCLK = currentStateCLK;
-
    displayNumber01(counter/8.09);
 }
 
